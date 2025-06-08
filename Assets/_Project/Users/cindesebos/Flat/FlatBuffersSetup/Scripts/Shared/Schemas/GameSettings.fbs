@@ -1,0 +1,10 @@
+include "Gameplay/Items.fbs";
+
+namespace FlatBuffersSetup;
+
+table GameSettings
+{
+    items: [Gameplay.ItemSettings];
+}
+
+root_type GameSettings;

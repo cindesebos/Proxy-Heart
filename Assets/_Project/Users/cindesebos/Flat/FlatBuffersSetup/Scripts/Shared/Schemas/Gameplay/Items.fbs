@@ -1,0 +1,6 @@
+namespace FlatBuffersSetup.Gameplay;
+
+table ItemSettings {
+    typeId: string;
+    titleLid: string;
+}
