@@ -1,4 +1,4 @@
-﻿using FlatBuffers.Editor;
+using FlatBuffers.Editor;
 using UnityEditor;
 
 namespace FlatBuffersSetup.Scripts.FlatBuffers.Editor
