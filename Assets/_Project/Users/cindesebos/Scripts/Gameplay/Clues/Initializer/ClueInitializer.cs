@@ -11,23 +11,42 @@ namespace Scripts.Gameplay.Clues.Initializer
 
         public ClueInitializer(ISettingsProvider settingsProvider) => _settingsProvider = settingsProvider;
 
-        public UniTask<ItemSettingsT> InitializeClueById(string typeId)
+        public UniTask<ClueTextSettingsT> InitializeClueTextById(string typeId)
         {
             var gameSettings = _settingsProvider.GameSettings;
 
-            for (int i = 0; i < gameSettings.ItemsLength; i++)
+            for (int i = 0; i < gameSettings.ClueTextsLength; i++)
             {
-                var item = gameSettings.Items(i);
+                var clue = gameSettings.ClueTexts(i);
 
-                if (item.HasValue && item.Value.TypeId == typeId)
+                if (clue.HasValue && clue.Value.TypeId == typeId)
                 {
-                    var unpacked = item.Value.UnPack();
+                    var unpacked = clue.Value.UnPack();
 
                     return UniTask.FromResult(unpacked);
                 }
             }
 
-            return UniTask.FromResult<ItemSettingsT>(null);
+            return UniTask.FromResult<ClueTextSettingsT>(null);
+        }
+
+        public UniTask<ClueObjectSettingsT> InitializeClueObjectById(string typeId)
+        {
+            var gameSettings = _settingsProvider.GameSettings;
+
+            for (int i = 0; i < gameSettings.ClueObjectsLength; i++)
+            {
+                var clue = gameSettings.ClueObjects(i);
+
+                if (clue.HasValue && clue.Value.TypeId == typeId)
+                {
+                    var unpacked = clue.Value.UnPack();
+
+                    return UniTask.FromResult(unpacked);
+                }
+            }
+
+            return UniTask.FromResult<ClueObjectSettingsT>(null);
         }
     }
 }

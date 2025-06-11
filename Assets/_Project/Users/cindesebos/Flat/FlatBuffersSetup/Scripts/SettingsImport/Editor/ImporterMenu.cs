@@ -7,13 +7,21 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor
     {
         [MenuItem("Flat/Import Settings/Import All Configs")]
         private static void ImportAllConfigs() => SettingsImportUtils.ImportAllConfigs();
-        
-        [MenuItem("Flat/Import Settings/Import Items Settings")]
-        private static void ImportItemsSettings()
+
+        [MenuItem("Flat/Import Settings/Import Clue Texts Settings")]
+        private static void ImportClueTextsSettings()
         {
-            var importer = new ItemsImporter();
+            var importer = new ClueTextsImporter();
 
             SettingsImportUtils.ImportConfig(importer);
+        }
+        
+        [MenuItem("Flat/Import Settings/Import Clue Objects Settings")]
+        private static void ImportClueObjectsSettings()
+        {
+            var importer = new ClueObjectsImporter();
+
+           SettingsImportUtils.ImportConfig(importer);
         }
     }
 }

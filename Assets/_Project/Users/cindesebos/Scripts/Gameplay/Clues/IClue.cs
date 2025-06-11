@@ -9,6 +9,6 @@ namespace Scripts.Gameplay.Clues
         string TypeId { get; }
         string TitleLid { get; }
 
-        UniTask Initialize(ItemSettingsT settings);
+        UniTask Initialize();
     }
 }
