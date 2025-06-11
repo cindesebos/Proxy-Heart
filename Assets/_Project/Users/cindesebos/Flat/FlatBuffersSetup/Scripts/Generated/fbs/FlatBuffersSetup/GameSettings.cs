@@ -20,23 +20,33 @@ public struct GameSettings : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public GameSettings __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public FlatBuffersSetup.Gameplay.ItemSettings? Items(int j) { int o = __p.__offset(4); return o != 0 ? (FlatBuffersSetup.Gameplay.ItemSettings?)(new FlatBuffersSetup.Gameplay.ItemSettings()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
-  public int ItemsLength { get { int o = __p.__offset(4); return o != 0 ? __p.__vector_len(o) : 0; } }
+  public FlatBuffersSetup.Gameplay.ClueObjectSettings? ClueObjects(int j) { int o = __p.__offset(4); return o != 0 ? (FlatBuffersSetup.Gameplay.ClueObjectSettings?)(new FlatBuffersSetup.Gameplay.ClueObjectSettings()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
+  public int ClueObjectsLength { get { int o = __p.__offset(4); return o != 0 ? __p.__vector_len(o) : 0; } }
+  public FlatBuffersSetup.Gameplay.ClueTextSettings? ClueTexts(int j) { int o = __p.__offset(6); return o != 0 ? (FlatBuffersSetup.Gameplay.ClueTextSettings?)(new FlatBuffersSetup.Gameplay.ClueTextSettings()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
+  public int ClueTextsLength { get { int o = __p.__offset(6); return o != 0 ? __p.__vector_len(o) : 0; } }
 
   public static Offset<FlatBuffersSetup.GameSettings> CreateGameSettings(FlatBufferBuilder builder,
-      VectorOffset itemsOffset = default(VectorOffset)) {
-    builder.StartTable(1);
-    GameSettings.AddItems(builder, itemsOffset);
+      VectorOffset clueObjectsOffset = default(VectorOffset),
+      VectorOffset clueTextsOffset = default(VectorOffset)) {
+    builder.StartTable(2);
+    GameSettings.AddClueTexts(builder, clueTextsOffset);
+    GameSettings.AddClueObjects(builder, clueObjectsOffset);
     return GameSettings.EndGameSettings(builder);
   }
 
-  public static void StartGameSettings(FlatBufferBuilder builder) { builder.StartTable(1); }
-  public static void AddItems(FlatBufferBuilder builder, VectorOffset itemsOffset) { builder.AddOffset(0, itemsOffset.Value, 0); }
-  public static VectorOffset CreateItemsVector(FlatBufferBuilder builder, Offset<FlatBuffersSetup.Gameplay.ItemSettings>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
-  public static VectorOffset CreateItemsVectorBlock(FlatBufferBuilder builder, Offset<FlatBuffersSetup.Gameplay.ItemSettings>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
-  public static VectorOffset CreateItemsVectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<FlatBuffersSetup.Gameplay.ItemSettings>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
-  public static VectorOffset CreateItemsVectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<FlatBuffersSetup.Gameplay.ItemSettings>>(dataPtr, sizeInBytes); return builder.EndVector(); }
-  public static void StartItemsVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
+  public static void StartGameSettings(FlatBufferBuilder builder) { builder.StartTable(2); }
+  public static void AddClueObjects(FlatBufferBuilder builder, VectorOffset clueObjectsOffset) { builder.AddOffset(0, clueObjectsOffset.Value, 0); }
+  public static VectorOffset CreateClueObjectsVector(FlatBufferBuilder builder, Offset<FlatBuffersSetup.Gameplay.ClueObjectSettings>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
+  public static VectorOffset CreateClueObjectsVectorBlock(FlatBufferBuilder builder, Offset<FlatBuffersSetup.Gameplay.ClueObjectSettings>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateClueObjectsVectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<FlatBuffersSetup.Gameplay.ClueObjectSettings>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateClueObjectsVectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<FlatBuffersSetup.Gameplay.ClueObjectSettings>>(dataPtr, sizeInBytes); return builder.EndVector(); }
+  public static void StartClueObjectsVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
+  public static void AddClueTexts(FlatBufferBuilder builder, VectorOffset clueTextsOffset) { builder.AddOffset(1, clueTextsOffset.Value, 0); }
+  public static VectorOffset CreateClueTextsVector(FlatBufferBuilder builder, Offset<FlatBuffersSetup.Gameplay.ClueTextSettings>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
+  public static VectorOffset CreateClueTextsVectorBlock(FlatBufferBuilder builder, Offset<FlatBuffersSetup.Gameplay.ClueTextSettings>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateClueTextsVectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<FlatBuffersSetup.Gameplay.ClueTextSettings>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateClueTextsVectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<FlatBuffersSetup.Gameplay.ClueTextSettings>>(dataPtr, sizeInBytes); return builder.EndVector(); }
+  public static void StartClueTextsVector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static Offset<FlatBuffersSetup.GameSettings> EndGameSettings(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<FlatBuffersSetup.GameSettings>(o);
@@ -49,29 +59,40 @@ public struct GameSettings : IFlatbufferObject
     return _o;
   }
   public void UnPackTo(GameSettingsT _o) {
-    _o.Items = new List<FlatBuffersSetup.Gameplay.ItemSettingsT>();
-    for (var _j = 0; _j < this.ItemsLength; ++_j) {_o.Items.Add(this.Items(_j).HasValue ? this.Items(_j).Value.UnPack() : null);}
+    _o.ClueObjects = new List<FlatBuffersSetup.Gameplay.ClueObjectSettingsT>();
+    for (var _j = 0; _j < this.ClueObjectsLength; ++_j) {_o.ClueObjects.Add(this.ClueObjects(_j).HasValue ? this.ClueObjects(_j).Value.UnPack() : null);}
+    _o.ClueTexts = new List<FlatBuffersSetup.Gameplay.ClueTextSettingsT>();
+    for (var _j = 0; _j < this.ClueTextsLength; ++_j) {_o.ClueTexts.Add(this.ClueTexts(_j).HasValue ? this.ClueTexts(_j).Value.UnPack() : null);}
   }
   public static Offset<FlatBuffersSetup.GameSettings> Pack(FlatBufferBuilder builder, GameSettingsT _o) {
     if (_o == null) return default(Offset<FlatBuffersSetup.GameSettings>);
-    var _items = default(VectorOffset);
-    if (_o.Items != null) {
-      var __items = new Offset<FlatBuffersSetup.Gameplay.ItemSettings>[_o.Items.Count];
-      for (var _j = 0; _j < __items.Length; ++_j) { __items[_j] = FlatBuffersSetup.Gameplay.ItemSettings.Pack(builder, _o.Items[_j]); }
-      _items = CreateItemsVector(builder, __items);
+    var _clueObjects = default(VectorOffset);
+    if (_o.ClueObjects != null) {
+      var __clueObjects = new Offset<FlatBuffersSetup.Gameplay.ClueObjectSettings>[_o.ClueObjects.Count];
+      for (var _j = 0; _j < __clueObjects.Length; ++_j) { __clueObjects[_j] = FlatBuffersSetup.Gameplay.ClueObjectSettings.Pack(builder, _o.ClueObjects[_j]); }
+      _clueObjects = CreateClueObjectsVector(builder, __clueObjects);
+    }
+    var _clueTexts = default(VectorOffset);
+    if (_o.ClueTexts != null) {
+      var __clueTexts = new Offset<FlatBuffersSetup.Gameplay.ClueTextSettings>[_o.ClueTexts.Count];
+      for (var _j = 0; _j < __clueTexts.Length; ++_j) { __clueTexts[_j] = FlatBuffersSetup.Gameplay.ClueTextSettings.Pack(builder, _o.ClueTexts[_j]); }
+      _clueTexts = CreateClueTextsVector(builder, __clueTexts);
     }
     return CreateGameSettings(
       builder,
-      _items);
+      _clueObjects,
+      _clueTexts);
   }
 }
 
 public class GameSettingsT
 {
-  public List<FlatBuffersSetup.Gameplay.ItemSettingsT> Items { get; set; }
+  public List<FlatBuffersSetup.Gameplay.ClueObjectSettingsT> ClueObjects { get; set; }
+  public List<FlatBuffersSetup.Gameplay.ClueTextSettingsT> ClueTexts { get; set; }
 
   public GameSettingsT() {
-    this.Items = null;
+    this.ClueObjects = null;
+    this.ClueTexts = null;
   }
   public static GameSettingsT DeserializeFromBinary(byte[] fbBuffer) {
     return GameSettings.GetRootAsGameSettings(new ByteBuffer(fbBuffer)).UnPack();
@@ -89,7 +110,8 @@ static public class GameSettingsVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
-      && verifier.VerifyVectorOfTables(tablePos, 4 /*Items*/, FlatBuffersSetup.Gameplay.ItemSettingsVerify.Verify, false)
+      && verifier.VerifyVectorOfTables(tablePos, 4 /*ClueObjects*/, FlatBuffersSetup.Gameplay.ClueObjectSettingsVerify.Verify, false)
+      && verifier.VerifyVectorOfTables(tablePos, 6 /*ClueTexts*/, FlatBuffersSetup.Gameplay.ClueTextSettingsVerify.Verify, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

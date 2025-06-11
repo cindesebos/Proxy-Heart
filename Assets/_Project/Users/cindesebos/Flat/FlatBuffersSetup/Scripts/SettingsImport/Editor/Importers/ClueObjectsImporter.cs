@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace FlatBuffersSetup.Scripts.SettingsImport.Editor.Importers
 {
-    public class ItemsImporter : ProjectImporter, IImporter
+    public class ClueObjectsImporter : ProjectImporter, IImporter
     {
-        protected override string SettingsFileName => "ItemsSettings.bytes";
+        protected override string SettingsFileName => "ClueObjectsSettings.bytes";
 
-        private ItemSettingsT _currentBuildingSettings;
+        private ClueObjectSettingsT _currentSettings;
 
-        public ItemsImporter() : base(ImportConstants.MAIN_CONFIG_SPREADSHEET_ID, "Items") { }
+        public ClueObjectsImporter() : base(ImportConstants.MAIN_CONFIG_SPREADSHEET_ID, "ClueObjects") { }
 
         public async Task DownloadAndParse()
         {
             LocalSettings = new GameSettingsT
             {
-                Items = new List<ItemSettingsT>()
+                ClueObjects = new List<ClueObjectSettingsT>()
             };
 
             await DownloadAndParseSheet();
@@ -26,27 +26,25 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor.Importers
 
         public void AddToSettings(GameSettingsT gameSettingsT)
         {
-            gameSettingsT.Items = LocalSettings.Items;
+            gameSettingsT.ClueObjects = LocalSettings.ClueObjects;
         }
 
         protected override void ParseCell(string header, string cellData)
         {
             if (header == "TypeId")
             {
-                _currentBuildingSettings = new ItemSettingsT
+                _currentSettings = new ClueObjectSettingsT
                 {
                     TypeId = cellData
                 };
-                LocalSettings.Items.Add(_currentBuildingSettings);
+
+                LocalSettings.ClueObjects.Add(_currentSettings);
                 return;
             }
 
             if (header == "TitleLID")
             {
-                if (_currentBuildingSettings != null)
-                {
-                    _currentBuildingSettings.TitleLid = cellData;
-                }
+                if (_currentSettings != null) _currentSettings.TitleLid = cellData;
 
                 return;
             }

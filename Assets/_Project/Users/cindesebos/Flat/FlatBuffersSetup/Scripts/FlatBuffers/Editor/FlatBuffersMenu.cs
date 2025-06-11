@@ -10,7 +10,8 @@ namespace FlatBuffersSetup.Scripts.FlatBuffers.Editor
         private static readonly string[] _schemaPaths =
         {
             "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/GameSettings.fbs",
-            "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/Gameplay/Items.fbs"
+            "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/Gameplay/ClueObjects.fbs",
+            "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/Gameplay/ClueTexts.fbs"
         };
 
         [MenuItem("Flat/FlatBuffers/Compile FlatBuffers Schemas")]

@@ -6,7 +6,7 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor
 {
     public abstract class ProjectImporter : GoogleSheetsImporter
     {
-        public string SheetName { get; }
+       public string SheetName { get; }
         public GameSettingsT LocalSettings { get; protected set; }
         
         protected abstract string SettingsFileName { get; }
