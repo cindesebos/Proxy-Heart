@@ -3,13 +3,13 @@ using System;
 using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
 
-namespace Scripts.Services.Loader
+namespace Scripts.Services.Loader.Scenes
 {
     public class SceneLoader : ISceneLoader
     {
-        public event Action OnLoadingStart;
+        public event Action OnLoadingStarted;
 
-        public event Action OnLoadingEnd;
+        public event Action OnLoadingEnded;
 
         public void LoadScene(Scene scene) => LoadSceneAsync(scene).Forget();
 
@@ -17,7 +17,7 @@ namespace Scripts.Services.Loader
         {
             try
             {
-                OnLoadingStart?.Invoke();
+                OnLoadingStarted?.Invoke();
 
                 string sceneName = scene.ToString();
 
@@ -29,7 +29,7 @@ namespace Scripts.Services.Loader
             }
             finally 
             {
-                OnLoadingEnd?.Invoke();
+                OnLoadingEnded?.Invoke();
             }
         }
     }

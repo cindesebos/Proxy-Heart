@@ -1,6 +1,7 @@
 using Zenject;
 using Scripts.Settings;
-using Scripts.Services.Loader;
+using Scripts.Services.Loader.Scenes;
+using Scripts.Services.Loader.Assets;
 
 namespace Scripts.Project
 {
@@ -8,8 +9,16 @@ namespace Scripts.Project
     {
         public override void InstallBindings()
         {
+            BindLocalAssetLoader();
             BindSettingsProvider();
             BindSceneLoader();
+        }
+
+        private void BindLocalAssetLoader()
+        {
+            Container.Bind<ILocalAssetLoader>()
+                .To<LocalAssetLoader>()
+                .AsSingle();
         }
 
         private void BindSettingsProvider()

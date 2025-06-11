@@ -1,5 +1,7 @@
 using FlatBuffersSetup;
-using Scripts.Services.Loader;
+using Scripts.Services.Loader.Assets;
+using Scripts.Services.Loader.Scenes;
+using System.Threading.Tasks;
 using Scripts.Settings;
 using UnityEngine;
 using Zenject;
@@ -8,24 +10,32 @@ namespace Scripts.Bootstrap
 {
     public class BootstrapService : IInitializable
     {
-        private const Scene SceneToLoad = Scene.Gameplay;
-
         private readonly ISettingsProvider _settingsProvider;
+        private readonly Scene SceneToLoad;
         private readonly ISceneLoader _sceneLoader;
+        protected readonly ILocalAssetLoader _localAssetLoader;
 
-        public BootstrapService(ISettingsProvider settingsProvider, ISceneLoader sceneLoadere)
+        public BootstrapService(ISettingsProvider settingsProvider, Scene scene, ISceneLoader sceneLoadere, ILocalAssetLoader localAssetLoader)
         {
             _settingsProvider = settingsProvider;
+
+            if (scene == Scene.Bootstrap) SceneToLoad = Scene.Gameplay;
+            else SceneToLoad = scene;
+
             _sceneLoader = sceneLoadere;
+            _localAssetLoader = localAssetLoader;
         }
 
         public async void Initialize()
         {
-            await _settingsProvider.LoadAllSettingsAsync();
+            using (var loadingCanvas = await _localAssetLoader.LoadDisposable<GameObject>(AssetsConstants.LoadingCanvas))
+            {
+                await _settingsProvider.LoadAllSettingsAsync();
 
-            PrintAllTextsSettings();
+                PrintAllTextsSettings();
 
-            await _sceneLoader.LoadSceneAsync(SceneToLoad);
+                await _sceneLoader.LoadSceneAsync(SceneToLoad);
+            }
         }
 
         private void PrintAllTextsSettings()

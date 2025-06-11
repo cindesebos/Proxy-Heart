@@ -1,4 +1,4 @@
-namespace Scripts.Services.Loader
+namespace Scripts.Services.Loader.Scenes
 {
     public enum Scene
     {

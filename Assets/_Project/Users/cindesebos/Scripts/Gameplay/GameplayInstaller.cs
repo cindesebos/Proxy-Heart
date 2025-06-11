@@ -2,6 +2,7 @@ using Zenject;
 using Scripts.Settings;
 using Scripts.Gameplay.Clues.Initializer;
 using Scripts.Inventory;
+using Scripts.Services.Loader.Assets;
 
 namespace Scripts.Gameplay
 {
@@ -9,8 +10,16 @@ namespace Scripts.Gameplay
     {
         public override void InstallBindings()
         {
+            BindLocalAssetLoader();
             BindClueInitializer();
             BindInventory();
+        }
+
+        private void BindLocalAssetLoader()
+        {
+            Container.Bind<ILocalAssetLoader>()
+                .To<LocalAssetLoader>()
+                .AsSingle();
         }
 
         private void BindClueInitializer()

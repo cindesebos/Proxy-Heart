@@ -1,13 +1,13 @@
 using System;
 using Cysharp.Threading.Tasks;
 
-namespace Scripts.Services.Loader
+namespace Scripts.Services.Loader.Scenes
 {
     public interface ISceneLoader
     {
-        event Action OnLoadingStart;
+        event Action OnLoadingStarted;
 
-        event Action OnLoadingEnd;
+        event Action OnLoadingEnded;
 
         void LoadScene(Scene scene);
 
