@@ -10,6 +10,7 @@ namespace Scripts.Inventory
 
         private readonly TextMeshProUGUI _clueVfxText;
         private readonly Vector2 _endPosition;
+        private readonly float _fixedZ;
 
         private Tween _moveTween;
 
@@ -17,20 +18,30 @@ namespace Scripts.Inventory
         {
             _clueVfxText = GameObject.Instantiate(clueVfxPrefab, canvasTransform);
 
+            _fixedZ = _clueVfxText.transform.position.z;
+
             _clueVfxText.gameObject.SetActive(false);
 
             _endPosition = endPoint.position;
         }
 
-        public void MoveTo(string word, Vector2 startPosition)
+        public void MoveTo(string word, Vector2 screenPosition)
         {
             _moveTween?.Kill();
 
             _clueVfxText.text = word;
-            _clueVfxText.transform.position = startPosition;
+
+            Vector3 worldStartPosition = Camera.main.ScreenToWorldPoint(
+                new Vector3(screenPosition.x, screenPosition.y, Camera.main.WorldToScreenPoint(new Vector3(0, 0, _fixedZ)).z)
+            );
+
+            _clueVfxText.transform.position = worldStartPosition;
             _clueVfxText.gameObject.SetActive(true);
 
-            _moveTween = _clueVfxText.transform.DOMove(_endPosition, MoveDuration)
+            Vector3 targetPosition = _endPosition;
+            targetPosition.z = _fixedZ;
+
+            _moveTween = _clueVfxText.transform.DOMove(targetPosition, MoveDuration)
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() =>
                 {

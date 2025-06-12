@@ -22,12 +22,9 @@ namespace Scripts.Inventory
         private void Construct(IInventory inventory)
         {
             _inventory = inventory;
-            
-            _vfx = new ClueDisplayVFX(_clueVfxPrefab, _endPoint, _canvasTransform);
-        }
 
-        private void OnEnable()
-        {
+            _vfx = new ClueDisplayVFX(_clueVfxPrefab, _endPoint, _canvasTransform);
+            
             _inventory.OnClueAdded += OnClueAdded;
         }
 

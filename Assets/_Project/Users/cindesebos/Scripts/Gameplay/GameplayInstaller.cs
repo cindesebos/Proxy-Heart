@@ -1,18 +1,23 @@
 using Zenject;
+using UnityEngine;
 using Scripts.Settings;
 using Scripts.Gameplay.Clues.Initializer;
 using Scripts.Inventory;
 using Scripts.Services.Loader.Assets;
+using Scripts.Gameplay.Canvases;
 
 namespace Scripts.Gameplay
 {
     public class GameplayInstaller : MonoInstaller
     {
+        [SerializeField] private CanvasesHandler _canvasesHandler;
+
         public override void InstallBindings()
         {
             BindLocalAssetLoader();
             BindClueInitializer();
             BindInventory();
+            BindCanvasesHandler();
         }
 
         private void BindLocalAssetLoader()
@@ -33,6 +38,13 @@ namespace Scripts.Gameplay
         {
             Container.Bind<IInventory>()
                 .To<Inventory.Inventory>()
+                .AsSingle();
+        }
+
+        private void BindCanvasesHandler()
+        {
+            Container.Bind<CanvasesHandler>()
+                .FromInstance(_canvasesHandler)
                 .AsSingle();
         }
     }
