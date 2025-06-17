@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Scripts.Settings;
 using UnityEngine;
 using Zenject;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Scripts.Bootstrap
 {
@@ -42,7 +44,7 @@ namespace Scripts.Bootstrap
         {
             var gameSettings = _settingsProvider.GameSettings;
 
-            var message = $"{GetClueTextsSettings(gameSettings)} \n {GetClueObjectsSettings(gameSettings)} \n";
+            var message = $"{GetClueTextsSettings(gameSettings)} \n {GetClueObjectsSettings(gameSettings)} \n {GetClueGroupsSettings(gameSettings)} \n";
 
             Debug.Log(message);
         }
@@ -88,6 +90,34 @@ namespace Scripts.Bootstrap
                 var titleLid = settings.TitleLid;
 
                 message += $"\nTypeId: {typeId} - TitleLid: {titleLid}";
+            }
+
+            return message;
+        }
+
+        private string GetClueGroupsSettings(GameSettings gameSettings)
+        {
+            var count = gameSettings.ClueGroupsLength;
+            string message = string.Empty;
+
+            for (int i = 0; i < count; i++)
+            {
+                var groupSetting = gameSettings.ClueGroups(i);
+                if (!groupSetting.HasValue) continue;
+
+                var settings = groupSetting.Value;
+
+                var typeId = settings.TypeId;
+                var titleLid = settings.TitleLid;
+
+                string correctIds = "None";
+
+                if (settings.CorrectIdsLength > 0)
+                {
+                    correctIds = string.Join(", ", Enumerable.Range(0, settings.CorrectIdsLength).Select(j => settings.CorrectIds(j)));
+                }
+
+                message += $"\nTypeId: {typeId} - TitleLid: {titleLid} - CorrectIds: {correctIds}";
             }
 
             return message;

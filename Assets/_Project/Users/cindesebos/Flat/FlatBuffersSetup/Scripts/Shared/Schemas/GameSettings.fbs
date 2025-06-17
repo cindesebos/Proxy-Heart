@@ -1,5 +1,6 @@
 include "Gameplay/ClueObjects.fbs";
 include "Gameplay/ClueTexts.fbs";
+include "Gameplay/ClueGroups.fbs";
 
 namespace FlatBuffersSetup;
 
@@ -7,6 +8,7 @@ table GameSettings
 {
     clueObjects: [Gameplay.ClueObjectSettings];
     clueTexts: [Gameplay.ClueTextSettings];
+    clueGroups: [Gameplay.ClueGroupSettings];
 }
 
 root_type GameSettings;

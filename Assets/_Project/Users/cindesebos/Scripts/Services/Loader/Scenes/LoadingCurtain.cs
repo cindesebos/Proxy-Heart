@@ -12,8 +12,6 @@ namespace Scripts.Services.Loader.Scenes
         [Inject]
         private void Construct(ISceneLoader sceneLoader)
         {
-            Debug.Log("Peremoga");
-
             _sceneLoader = sceneLoader;
 
             _sceneLoader.OnLoadingStarted += Show;

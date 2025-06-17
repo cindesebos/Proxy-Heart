@@ -11,7 +11,8 @@ namespace FlatBuffersSetup.Scripts.FlatBuffers.Editor
         {
             "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/GameSettings.fbs",
             "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/Gameplay/ClueObjects.fbs",
-            "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/Gameplay/ClueTexts.fbs"
+            "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/Gameplay/ClueTexts.fbs",
+            "Assets/_Project/Users/cindesebos/Flat/FlatBuffersSetup/Scripts/Shared/Schemas/Gameplay/ClueGroups.fbs"
         };
 
         [MenuItem("Flat/FlatBuffers/Compile FlatBuffers Schemas")]
