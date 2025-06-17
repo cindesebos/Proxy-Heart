@@ -3557,9 +3557,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1008995046711413316, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2756309878959459567, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
       propertyPath: m_Name
       value: Google
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756309878959459567, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3419912990671280954, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
       propertyPath: m_Pivot.x
@@ -3640,6 +3648,22 @@ PrefabInstance:
     - target: {fileID: 3419912990671280954, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159013024399859835, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039441906740175320, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8428019014935035890, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035008459777371219, guid: 3c67a86be279e664989c96ee3a032260, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
