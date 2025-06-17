@@ -1,0 +1,7 @@
+namespace FlatBuffersSetup.Gameplay;
+
+table ClueObjectSettings
+{
+    typeId: string;
+    titleLid: string;
+}

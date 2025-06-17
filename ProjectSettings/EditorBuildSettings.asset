@@ -6,8 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Project/Users/cindesebos/Scenes/Bootstrap.unity
+    guid: 44b2a5ac42782a42b92dd577fb3929ad
+  - enabled: 1
     path: Assets/_Project/Users/cindesebos/Scenes/Gameplay.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 75dbd817be931f37a840cab17e677588, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
