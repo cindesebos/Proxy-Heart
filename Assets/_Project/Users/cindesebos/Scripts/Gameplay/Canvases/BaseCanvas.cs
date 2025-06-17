@@ -13,13 +13,13 @@ namespace Scripts.Gameplay.Canvases
         public void Open()
         {
             Canvas.enabled = true;
-            _icon.SetActive(true);
+            _icon?.SetActive(true);
         }
 
         public void Close()
         {
             Canvas.enabled = false;
-            _icon.SetActive(false);
+            _icon?.SetActive(false);
         }
 
         public void Toggle()

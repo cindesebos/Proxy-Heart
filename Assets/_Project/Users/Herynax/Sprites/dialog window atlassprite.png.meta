@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3496b9bde129c4249935a4117d96e3dd
+guid: 3492bf2a4c7f8b24db43039e3a6a2bdd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pngwing.com_0
+      name: dialog window atlassprite_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 275
-        width: 248
-        height: 249
+        y: 346
+        width: 1730
+        height: 820
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94c010bbaf3307742bb71779f1eaecf7
-      internalID: 2002964578
+      spriteID: 33fbac3ea1c81b74e9901b3dcb9a9795
+      internalID: -1953944713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pngwing.com_1
+      name: dialog window atlassprite_1
       rect:
         serializedVersion: 2
-        x: 276
-        y: 275
-        width: 248
-        height: 249
+        x: 1778
+        y: 710
+        width: 17
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68fea6f9493df1e44b5ff25dacd6d7e3
-      internalID: -1714926044
+      spriteID: 702c051094562604193a0ea0499325f7
+      internalID: 241129643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pngwing.com_2
+      name: dialog window atlassprite_2
       rect:
         serializedVersion: 2
-        x: 552
-        y: 275
-        width: 248
-        height: 249
+        x: 1763
+        y: 347
+        width: 30
+        height: 328
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e92acc0789f8e740afc199509a2e858
-      internalID: -819779147
+      spriteID: 68b2ff1e9eb4b05468a906822f9487a0
+      internalID: -1158161749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pngwing.com_3
+      name: dialog window atlassprite_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 248
-        height: 249
+        x: 232
+        y: 294
+        width: 48
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167668c68a19f974f91a2f9721198311
-      internalID: -63590508
+      spriteID: 9822dc58d4634624f974723a9bf17f27
+      internalID: 1950801058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pngwing.com_4
+      name: dialog window atlassprite_4
       rect:
         serializedVersion: 2
-        x: 276
-        y: 0
-        width: 248
-        height: 249
+        x: 47
+        y: 207
+        width: 418
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78cfb1cdbf34ef544b93eddb11955483
-      internalID: -1689544299
+      spriteID: 9f39e101a045f7d4fb0d96f3e27765c9
+      internalID: -920343422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pngwing.com_5
+      name: dialog window atlassprite_5
       rect:
         serializedVersion: 2
-        x: 552
-        y: 0
-        width: 248
-        height: 249
+        x: 527
+        y: 212
+        width: 1019
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +235,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c55e3e605b75d7140b6c3392d4194fd1
-      internalID: 302406716
+      spriteID: c8dcadae73e247c4c83aa1930c144259
+      internalID: 1364192903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialog window atlassprite_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 32
+        width: 390
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d24dcbe61084e849aa21a9fd95f8604
+      internalID: -1785484905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialog window atlassprite_7
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 108
+        width: 1002
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53247ab2860620d46ae0310f3c4dc18b
+      internalID: 618926084
       vertices: []
       indices: 
       edges: []
@@ -245,7 +289,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dac804716c3fb81459c6dcaf0e81a065
+    spriteID: 891e6be90db38f24fa38bb563a4dbbae
     internalID: 0
     vertices: []
     indices: 
@@ -255,12 +299,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pngwing.com_0: 2002964578
-      pngwing.com_1: -1714926044
-      pngwing.com_2: -819779147
-      pngwing.com_3: -63590508
-      pngwing.com_4: -1689544299
-      pngwing.com_5: 302406716
+      dialog window atlassprite_0: -1953944713
+      dialog window atlassprite_1: 241129643
+      dialog window atlassprite_2: -1158161749
+      dialog window atlassprite_3: 1950801058
+      dialog window atlassprite_4: -920343422
+      dialog window atlassprite_5: 1364192903
+      dialog window atlassprite_6: -1785484905
+      dialog window atlassprite_7: 618926084
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
