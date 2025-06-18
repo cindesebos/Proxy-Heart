@@ -49,7 +49,7 @@ namespace Scripts.Gameplay.Clues.Initializer
             return UniTask.FromResult<ClueObjectSettingsT>(null);
         }
 
-        public UniTask<ClueGroupSettingsT> InitializeGriupVariantById(string typeId)
+        public UniTask<ClueGroupSettingsT> InitializeGroupVariantById(string typeId)
         {
             var gameSettings = _settingsProvider.GameSettings;
 

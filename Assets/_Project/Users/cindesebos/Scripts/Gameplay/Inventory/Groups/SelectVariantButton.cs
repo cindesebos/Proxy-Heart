@@ -30,7 +30,7 @@ namespace Scripts
         {
             _text.enabled = false;
 
-            _settings = await _clueInitializer.InitializeGriupVariantById(TypeId);
+            _settings = await _clueInitializer.InitializeGroupVariantById(TypeId);
 
             await Initialize();
         }

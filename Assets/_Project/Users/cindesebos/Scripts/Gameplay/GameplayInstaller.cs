@@ -18,6 +18,7 @@ namespace Scripts.Gameplay
             BindClueInitializer();
             BindInventory();
             BindCanvasesHandler();
+            BindDialogueHandler();
         }
 
         private void BindLocalAssetLoader()
@@ -45,6 +46,12 @@ namespace Scripts.Gameplay
         {
             Container.Bind<CanvasesHandler>()
                 .FromInstance(_canvasesHandler)
+                .AsSingle();
+        }
+
+        private void BindDialogueHandler()
+        {
+            Container.BindInterfacesAndSelfTo<DialogueHandler>()
                 .AsSingle();
         }
     }
