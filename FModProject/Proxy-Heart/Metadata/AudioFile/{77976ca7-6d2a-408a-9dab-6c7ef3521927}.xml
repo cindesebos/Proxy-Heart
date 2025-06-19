@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{77976ca7-6d2a-408a-9dab-6c7ef3521927}">
+		<property name="assetPath">
+			<value>windows-95-sfx-ding.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.52349999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cf41f387-8bff-4cc2-9d46-e9c3e9e9a4ad}</destination>
+		</relationship>
+	</object>
+</objects>
