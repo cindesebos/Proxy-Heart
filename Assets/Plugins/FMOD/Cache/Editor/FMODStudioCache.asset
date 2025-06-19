@@ -1,6 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7945030784773840531
+--- !u!114 &-4982122224106299681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FModProject/Proxy-Heart/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638858051044911023
+  FileSizes:
+  - Name: Desktop
+    Value: 800
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -4982122224106299681}
+  - {fileID: 6732682376795463168}
+  EditorEvents:
+  - {fileID: 2836008189758224374}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 6732682376795463168}
+  StringsBanks:
+  - {fileID: -4982122224106299681}
+  cacheTime: 638858051044911023
+  cacheVersion: 131624
+--- !u!114 &2836008189758224374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19,7 +63,7 @@ MonoBehaviour:
     Data3: 1178892991
     Data4: 2131213638
   Banks:
-  - {fileID: -2594807899525727050}
+  - {fileID: 6732682376795463168}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -27,7 +71,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 110000
---- !u!114 &-2594807899525727050
+--- !u!114 &6732682376795463168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,52 +86,8 @@ MonoBehaviour:
   Path: FModProject/Proxy-Heart/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638854186301613238
+  lastModified: 638858051044911023
   FileSizes:
   - Name: Desktop
     Value: 1657632
-  Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 6146705094081728388}
-  - {fileID: -2594807899525727050}
-  EditorEvents:
-  - {fileID: -7945030784773840531}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -2594807899525727050}
-  StringsBanks:
-  - {fileID: 6146705094081728388}
-  cacheTime: 638854186301613238
-  cacheVersion: 131624
---- !u!114 &6146705094081728388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: FModProject/Proxy-Heart/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638854186301613238
-  FileSizes:
-  - Name: Desktop
-    Value: 800
   Exists: 1
