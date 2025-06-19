@@ -1,0 +1,14 @@
+namespace FlatBuffersSetup.Gameplay;
+
+enum AuthorType : byte 
+{
+    Player = 0,
+    Girl = 1,
+}
+
+table DialogueSettings
+{
+    typeId: string;
+    authorType: AuthorType;
+    messageLid: string;
+}

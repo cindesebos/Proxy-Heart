@@ -12,7 +12,8 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor
             {
                 new ClueTextsImporter(),
                 new ClueObjectsImporter(),
-                new ClueGroupsImporter()
+                new ClueGroupsImporter(),
+                new DialoguesImporter()
             };
 
             return allImporters;
