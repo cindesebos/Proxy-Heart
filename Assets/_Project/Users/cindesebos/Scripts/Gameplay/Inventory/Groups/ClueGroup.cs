@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Inventory.Groups
 {
-    public class ClueGroups : MonoBehaviour
+    public class ClueGroup : MonoBehaviour
     {
         [SerializeField] private List<ClueDisplayer> _displayers;
         [SerializeField] private List<SelectVariantButton> _selectVariantButtons;

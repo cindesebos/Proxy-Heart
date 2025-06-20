@@ -44,7 +44,11 @@ namespace Scripts.Bootstrap
         {
             var gameSettings = _settingsProvider.GameSettings;
 
-            var message = $"{GetClueTextsSettings(gameSettings)} \n {GetClueObjectsSettings(gameSettings)} \n {GetClueGroupsSettings(gameSettings)} \n";
+            var message =
+            $"\n\nClueTextsSettings: {GetClueTextsSettings(gameSettings)}" +
+            $"\n\nClueObjectsSettings: {GetClueObjectsSettings(gameSettings)}" +
+            $"\n\nClueGroupsSettings: {GetClueGroupsSettings(gameSettings)}" +
+            $"\n\nDialogusSettings: {GetDialogusSettings(gameSettings)}";
 
             Debug.Log(message);
         }
@@ -118,6 +122,30 @@ namespace Scripts.Bootstrap
                 }
 
                 message += $"\nTypeId: {typeId} - TitleLid: {titleLid} - CorrectIds: {correctIds}";
+            }
+
+            return message;
+        }
+
+        private string GetDialogusSettings(GameSettings gameSettings)
+        {
+            var count = gameSettings.DialoguesLength;
+
+            string message = string.Empty;
+
+            for (int i = 0; i < count; i++)
+            {
+                var textSetting = gameSettings.Dialogues(i);
+
+                if (!textSetting.HasValue) continue;
+
+                var settings = textSetting.Value;
+
+                var typeId = settings.TypeId;
+                var authorType = settings.AuthorType;
+                var titleLid = settings.MessageLid;
+
+                message += $"\nTypeId: {typeId} - AuthorType: {authorType} - TitleLid: {titleLid}";
             }
 
             return message;
