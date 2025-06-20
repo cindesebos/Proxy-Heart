@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using Zenject;
 using UnityEngine;
 using Scripts.Inventory;
+using FMODUnity;
 
 namespace Scripts.Gameplay.Clues
 {
@@ -47,6 +48,8 @@ namespace Scripts.Gameplay.Clues
             if (!_isUsed && _inventory.TryAddClue(this))
             {
                 _isUsed = true;
+
+                RuntimeManager.PlayOneShot("event:/SFX/Notepad");
 
                 Debug.Log($"You clicked on {TitleLid}");
             }

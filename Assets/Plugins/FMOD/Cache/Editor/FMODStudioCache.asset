@@ -150,7 +150,7 @@ MonoBehaviour:
   Path: FModProject/Proxy-Heart/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638859622450293652
+  lastModified: 638860392371491174
   FileSizes:
   - Name: Desktop
     Value: 3014080
@@ -184,7 +184,7 @@ MonoBehaviour:
   - {fileID: -2594807899525727050}
   StringsBanks:
   - {fileID: 6146705094081728388}
-  cacheTime: 638859622450303652
+  cacheTime: 638860392371531144
   cacheVersion: 131624
 --- !u!114 &2362358924738557823
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
   Path: FModProject/Proxy-Heart/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638859622450303652
+  lastModified: 638860392371531144
   FileSizes:
   - Name: Desktop
     Value: 1204
