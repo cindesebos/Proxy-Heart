@@ -48,5 +48,55 @@ namespace Scripts.Gameplay.Clues.Initializer
 
             return UniTask.FromResult<ClueObjectSettingsT>(null);
         }
+
+        public UniTask<ClueGroupSettingsT> InitializeGriupVariantById(string typeId)
+        {
+            var gameSettings = _settingsProvider.GameSettings;
+
+            for (int i = 0; i < gameSettings.ClueGroupsLength; i++)
+            {
+                var clue = gameSettings.ClueGroups(i);
+
+                if (clue.HasValue && clue.Value.TypeId == typeId)
+                {
+                    var unpacked = clue.Value.UnPack();
+
+                    return UniTask.FromResult(unpacked);
+                }
+            }
+
+            return UniTask.FromResult<ClueGroupSettingsT>(null);
+        }
+
+        public UniTask<string> InitializeClueById(string typeId)
+        {
+            var gameSettings = _settingsProvider.GameSettings;
+
+            for (int i = 0; i < gameSettings.ClueTextsLength; i++)
+            {
+                var clue = gameSettings.ClueTexts(i);
+
+                if (clue.HasValue && clue.Value.TypeId == typeId)
+                {
+                    var unpacked = clue.Value.UnPack();
+
+                    return UniTask.FromResult(unpacked.MessageLid);
+                }
+            }
+
+            for (int i = 0; i < gameSettings.ClueObjectsLength; i++)
+            {
+                var clue = gameSettings.ClueObjects(i);
+
+                if (clue.HasValue && clue.Value.TypeId == typeId)
+                {
+                    var unpacked = clue.Value.UnPack();
+
+                    return UniTask.FromResult(unpacked.TitleLid);
+                }
+            }
+
+            return UniTask.FromResult<string>(null);
+        }
     }
 }

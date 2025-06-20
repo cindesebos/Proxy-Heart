@@ -37,9 +37,9 @@ public class FpsManager : MonoBehaviour
         fpsDisplayToggleSlider.onValueChanged.AddListener(OnDisplayToggleChanged);
         vsyncSlider.onValueChanged.AddListener(OnVsyncSliderChanged);
 
-        // Применяем начальные значения
-        ApplyVSync();         // важно: сначала VSync
-        ApplyTargetFps();     // потом FPS
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        ApplyVSync();         // пїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ VSync
+        ApplyTargetFps();     // пїЅпїЅпїЅпїЅпїЅ FPS
         ApplyFpsDisplay();
     }
 
@@ -85,7 +85,7 @@ public class FpsManager : MonoBehaviour
     {
         int vsync = PlayerPrefs.GetInt("vsync", 1);
         QualitySettings.vSyncCount = vsync;
-        vsyncStatusText.text = vsync == 1 ? "Вкл" : "Выкл";
+        vsyncStatusText.text = vsync == 1 ? "Р’РљР›" : "Р’Р«РљР›";
     }
 
     private void ApplyFpsDisplay()
@@ -95,7 +95,7 @@ public class FpsManager : MonoBehaviour
         if (fpsDisplayObject != null)
             fpsDisplayObject.SetActive(show);
 
-        fpsDisplayStatusText.text = show ? "Вкл" : "Выкл";
+        fpsDisplayStatusText.text = show ? "Р’РљР›" : "Р’Р«РљР›";
     }
 
     private void LoadSettings()

@@ -11,7 +11,9 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor
             var allImporters = new List<IImporter>
             {
                 new ClueTextsImporter(),
-                new ClueObjectsImporter()
+                new ClueObjectsImporter(),
+                new ClueGroupsImporter(),
+                new DialoguesImporter()
             };
 
             return allImporters;

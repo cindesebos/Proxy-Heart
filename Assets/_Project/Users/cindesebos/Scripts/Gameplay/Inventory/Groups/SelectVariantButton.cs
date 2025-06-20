@@ -1,17 +1,14 @@
-using System;
 using Cysharp.Threading.Tasks;
-using Scripts.Gameplay.Clues;
+using FlatBuffersSetup.Gameplay;
 using Scripts.Gameplay.Clues.Initializer;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.Inventory
+namespace Scripts
 {
-    public class ClueDisplayer : MonoBehaviour, IClue
+    public class SelectVariantButton : MonoBehaviour
     {
-        public event Action<ClueDisplayer> OnClueDisplayed;
-
         [field: SerializeField] public string TypeId { get; private set; }
 
         public string TitleLid { get; private set; }
@@ -19,6 +16,7 @@ namespace Scripts.Inventory
         [SerializeField] private TextMeshProUGUI _text;
 
         private IClueInitializer _clueInitializer;
+        private ClueGroupSettingsT _settings;
 
         private void OnValidate() => _text ??= GetComponent<TextMeshProUGUI>();
 
@@ -32,23 +30,18 @@ namespace Scripts.Inventory
         {
             _text.enabled = false;
 
-            var clueObject = await _clueInitializer.InitializeClueObjectById(TypeId);
-            
-            TitleLid = clueObject.TitleLid;
+            _settings = await _clueInitializer.InitializeGriupVariantById(TypeId);
 
             await Initialize();
         }
 
         public async UniTask Initialize()
         {
+            TitleLid = _settings.TitleLid;
+
             _text.text = TitleLid;
         }
 
-        public void Display()
-        {
-            _text.enabled = true;
-
-            OnClueDisplayed?.Invoke(this);
-        }
+        public void Show() => _text.enabled = true;
     }
 }

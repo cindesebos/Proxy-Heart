@@ -41,8 +41,6 @@ namespace Scripts.Gameplay.Clues
 
         public async UniTask Initialize()
         {
-            TypeId = _settings.TypeId;
-
             MessaegLid = Compile(_settings.MessageLid);
 
             _text.text = MessaegLid;

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Scripts.Settings;
 using UnityEngine;
 using Zenject;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Scripts.Bootstrap
 {
@@ -42,7 +44,11 @@ namespace Scripts.Bootstrap
         {
             var gameSettings = _settingsProvider.GameSettings;
 
-            var message = $"{GetClueTextsSettings(gameSettings)} \n {GetClueObjectsSettings(gameSettings)} \n";
+            var message =
+            $"\n\nClueTextsSettings: {GetClueTextsSettings(gameSettings)}" +
+            $"\n\nClueObjectsSettings: {GetClueObjectsSettings(gameSettings)}" +
+            $"\n\nClueGroupsSettings: {GetClueGroupsSettings(gameSettings)}" +
+            $"\n\nDialogusSettings: {GetDialogusSettings(gameSettings)}";
 
             Debug.Log(message);
         }
@@ -88,6 +94,58 @@ namespace Scripts.Bootstrap
                 var titleLid = settings.TitleLid;
 
                 message += $"\nTypeId: {typeId} - TitleLid: {titleLid}";
+            }
+
+            return message;
+        }
+
+        private string GetClueGroupsSettings(GameSettings gameSettings)
+        {
+            var count = gameSettings.ClueGroupsLength;
+            string message = string.Empty;
+
+            for (int i = 0; i < count; i++)
+            {
+                var groupSetting = gameSettings.ClueGroups(i);
+                if (!groupSetting.HasValue) continue;
+
+                var settings = groupSetting.Value;
+
+                var typeId = settings.TypeId;
+                var titleLid = settings.TitleLid;
+
+                string correctIds = "None";
+
+                if (settings.CorrectIdsLength > 0)
+                {
+                    correctIds = string.Join(", ", Enumerable.Range(0, settings.CorrectIdsLength).Select(j => settings.CorrectIds(j)));
+                }
+
+                message += $"\nTypeId: {typeId} - TitleLid: {titleLid} - CorrectIds: {correctIds}";
+            }
+
+            return message;
+        }
+
+        private string GetDialogusSettings(GameSettings gameSettings)
+        {
+            var count = gameSettings.DialoguesLength;
+
+            string message = string.Empty;
+
+            for (int i = 0; i < count; i++)
+            {
+                var textSetting = gameSettings.Dialogues(i);
+
+                if (!textSetting.HasValue) continue;
+
+                var settings = textSetting.Value;
+
+                var typeId = settings.TypeId;
+                var authorType = settings.AuthorType;
+                var titleLid = settings.MessageLid;
+
+                message += $"\nTypeId: {typeId} - AuthorType: {authorType} - TitleLid: {titleLid}";
             }
 
             return message;

@@ -39,9 +39,6 @@ namespace Scripts.Gameplay.Clues
 
         public async UniTask Initialize()
         {
-            Debug.Log("Initialized");
-
-            TypeId = _settings.TypeId;
             TitleLid = _settings.TitleLid;
         }
 

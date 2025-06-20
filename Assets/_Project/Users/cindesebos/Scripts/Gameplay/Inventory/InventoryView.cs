@@ -32,11 +32,11 @@ namespace Scripts.Inventory
         {
             foreach (ClueDisplayer clueDisplayer in _clueDisplayers)
             {
-                if (clueDisplayer.TitleLid == clue.TitleLid)
+                if (clueDisplayer.TypeId == clue.TypeId)
                 {
                     Vector2 clickPosition = Mouse.current.position.ReadValue();
 
-                    _vfx.MoveTo(clueDisplayer.TitleLid, clickPosition);
+                    _vfx.MoveTo(clue.TitleLid, clickPosition);
 
                     clueDisplayer.Display();
 

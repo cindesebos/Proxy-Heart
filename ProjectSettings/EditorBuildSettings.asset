@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Project/Users/cindesebos/Scenes/Bootstrap.unity
     guid: 44b2a5ac42782a42b92dd577fb3929ad
   - enabled: 1
+    path: Assets/_Project/Users/Herynax/Scenes/MainMenu.unity
+    guid: a364f9e5cfeb75c4ea0ede57bb9ad97c
+  - enabled: 1
     path: Assets/_Project/Users/cindesebos/Scenes/Gameplay.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:

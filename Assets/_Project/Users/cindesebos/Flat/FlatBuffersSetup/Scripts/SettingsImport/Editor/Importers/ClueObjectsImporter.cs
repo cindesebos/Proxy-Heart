@@ -33,6 +33,8 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor.Importers
         {
             if (header == "TypeId")
             {
+                UnityEngine.Debug.Log($"header: {header}  and cellData: {cellData}");
+
                 _currentSettings = new ClueObjectSettingsT
                 {
                     TypeId = cellData
@@ -44,6 +46,8 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor.Importers
 
             if (header == "TitleLID")
             {
+                UnityEngine.Debug.Log($"header: {header}  and cellData: {cellData}");
+
                 if (_currentSettings != null) _currentSettings.TitleLid = cellData;
 
                 return;

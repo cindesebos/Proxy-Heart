@@ -3,6 +3,7 @@ namespace Scripts.Services.Loader.Scenes
     public enum Scene
     {
         Bootstrap = 0,
-        Gameplay = 1
+        MainMenu = 1,
+        Gameplay = 2
     }
 }
