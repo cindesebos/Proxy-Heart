@@ -7,7 +7,7 @@ namespace Scripts.Gameplay.Clues.Initializer
     {
         UniTask<ClueTextSettingsT> InitializeClueTextById(string id);
         UniTask<ClueObjectSettingsT> InitializeClueObjectById(string id);
-        UniTask<ClueGroupSettingsT> InitializeGriupVariantById(string typeId);
+        UniTask<ClueGroupSettingsT> InitializeGroupVariantById(string typeId);
         UniTask<string> InitializeClueById(string id);
     }
 }
