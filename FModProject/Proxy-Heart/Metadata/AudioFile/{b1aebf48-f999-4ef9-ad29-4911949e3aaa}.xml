@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b1aebf48-f999-4ef9-ad29-4911949e3aaa}">
+		<property name="assetPath">
+			<value>In my restless dreams....mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>128.41795918367347</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cf41f387-8bff-4cc2-9d46-e9c3e9e9a4ad}</destination>
+		</relationship>
+	</object>
+</objects>
