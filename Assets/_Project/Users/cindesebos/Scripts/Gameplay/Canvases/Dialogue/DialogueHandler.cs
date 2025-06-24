@@ -13,6 +13,8 @@ namespace Scripts.Gameplay.Canvases.Dialogue
 {
     public class DialogueHandler
     {
+        private const float DelayMessageSend = 2f;
+
         public event Action<AuthorType, string> OnMessageSent;
         public event Action<ClueGroup, string> OnTopicVarianSelected;
 
@@ -42,13 +44,29 @@ namespace Scripts.Gameplay.Canvases.Dialogue
             OnMessageSent?.Invoke(settings.AuthorType, settings.MessageLid);
         }
 
+        public async UniTask SendMessage(string[] typeIds)
+        {
+            for (int i = 0; i < typeIds.Length; i++)
+            {
+                await UniTask.Delay(TimeSpan.FromSeconds(DelayMessageSend));
+
+                DialogueSettingsT settings = await InitializeClueTextById(typeIds[i]);
+
+                OnMessageSent?.Invoke(settings.AuthorType, settings.MessageLid);
+            }
+        }
+
         public async void SelectTopicVarian(ClueGroup clueGroup, string variantId)
         {
-            ClueGroupSettingsT settings = await _clueInitializer.InitializeGroupVariantById(variantId);
+            ClueGroupSettingsT settings = await _clueInitializer.InitializeGroupVariantById(
+                variantId
+            );
 
             bool isCorrect = settings.CorrectIds != null && _correctIds.Contains(variantId);
 
-            Debug.Log($"Выбранный ID: {variantId}, Правильные ответы: {string.Join(", ", _correctIds ?? new())}, isCorrect: {isCorrect}");
+            Debug.Log(
+                $"Выбранный ID: {variantId}, Правильные ответы: {string.Join(", ", _correctIds ?? new())}, isCorrect: {isCorrect}"
+            );
 
             OnTopicVarianSelected?.Invoke(clueGroup, settings.TitleLid);
         }

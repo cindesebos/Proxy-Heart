@@ -9,26 +9,8 @@ namespace Scripts.Gameplay.Clues.Initializer
     {
         private ISettingsProvider _settingsProvider;
 
-        public ClueInitializer(ISettingsProvider settingsProvider) => _settingsProvider = settingsProvider;
-
-        public UniTask<ClueTextSettingsT> InitializeClueTextById(string typeId)
-        {
-            var gameSettings = _settingsProvider.GameSettings;
-
-            for (int i = 0; i < gameSettings.ClueTextsLength; i++)
-            {
-                var clue = gameSettings.ClueTexts(i);
-
-                if (clue.HasValue && clue.Value.TypeId == typeId)
-                {
-                    var unpacked = clue.Value.UnPack();
-
-                    return UniTask.FromResult(unpacked);
-                }
-            }
-
-            return UniTask.FromResult<ClueTextSettingsT>(null);
-        }
+        public ClueInitializer(ISettingsProvider settingsProvider) =>
+            _settingsProvider = settingsProvider;
 
         public UniTask<ClueObjectSettingsT> InitializeClueObjectById(string typeId)
         {
@@ -72,18 +54,6 @@ namespace Scripts.Gameplay.Clues.Initializer
         {
             var gameSettings = _settingsProvider.GameSettings;
 
-            for (int i = 0; i < gameSettings.ClueTextsLength; i++)
-            {
-                var clue = gameSettings.ClueTexts(i);
-
-                if (clue.HasValue && clue.Value.TypeId == typeId)
-                {
-                    var unpacked = clue.Value.UnPack();
-
-                    return UniTask.FromResult(unpacked.MessageLid);
-                }
-            }
-
             for (int i = 0; i < gameSettings.ClueObjectsLength; i++)
             {
                 var clue = gameSettings.ClueObjects(i);
@@ -97,6 +67,41 @@ namespace Scripts.Gameplay.Clues.Initializer
             }
 
             return UniTask.FromResult<string>(null);
+        }
+
+        public UniTask<GoogleSettingsT> InitializeGoogleById(string variantId)
+        {
+            Debug.Log("Try initialize google by " + variantId);
+
+            var gameSettings = _settingsProvider.GameSettings;
+
+            for (int i = 0; i < gameSettings.GooglesLength; i++)
+            {
+                var google = gameSettings.Googles(i);
+
+                var googleVariantId = google.Value.VariantId;
+
+                if (google.HasValue && (googleVariantId == variantId || googleVariantId == ReverseText(variantId)))
+                {
+                    var unpacked = google.Value.UnPack();
+
+                    return UniTask.FromResult(unpacked);
+                }
+            }
+
+            return UniTask.FromResult<GoogleSettingsT>(null);
+        }
+
+        private string ReverseText(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return text;
+
+            char[] array = text.ToCharArray();
+
+            System.Array.Reverse(array);
+            
+            return new string(array);
         }
     }
 }

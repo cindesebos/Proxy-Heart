@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Text;
+using Scripts.Gameplay.Clues;
 using TMPro;
 using UnityEngine;
 
@@ -6,69 +8,90 @@ namespace Scripts.Gameplay.Canvases.Google
 {
     public class ResearchInputField : MonoBehaviour
     {
-        [SerializeField] private ClueItemsDropdown[] _clueItemsDropdowns;
+        [SerializeField] private ClueItemsDropdownsHandler _dropdownsHandler;
         [SerializeField] private TextMeshProUGUI _searchQueryText;
+        [SerializeField] private string _currentInput;
 
-        private Dictionary<int, string> _selectedTitlesByDropdown;
+        private Dictionary<int, IClue> _selectedCluesByDropdown = new();
+        private StringBuilder _inputBuilder = new();
+        private StringBuilder _titleBuilder = new();
+
 
         private void OnValidate()
         {
-            if (_clueItemsDropdowns == null || _clueItemsDropdowns.Length == 0)
-                _clueItemsDropdowns = GetComponentsInChildren<ClueItemsDropdown>();
+            _dropdownsHandler ??= GetComponentInParent<ClueItemsDropdownsHandler>();
         }
 
         private void Start()
         {
-            _selectedTitlesByDropdown = new Dictionary<int, string>();
-
-            foreach (var dropdown in _clueItemsDropdowns)
-            {
-                dropdown.OnClueSelected += AddTitleToList;
-                dropdown.OnClueDeselected += RemoveTitleFromList;
-            }
+            _dropdownsHandler.OnClueSelected += OnClueSelected;
+            _dropdownsHandler.OnClueDeselected += OnClueDeselected;
         }
 
-        private void AddTitleToList(string title, int dropdownId)
+        private void OnClueSelected(IClue clue, int dropdownId)
         {
-            foreach (var kvp in _selectedTitlesByDropdown)
+            foreach (var kvp in _selectedCluesByDropdown)
             {
-                if (kvp.Key != dropdownId && kvp.Value == title) return;
+                if (kvp.Key != dropdownId && kvp.Value.TitleLid == clue.TitleLid)
+                {
+                    OnClueDeselected(clue, dropdownId);
+
+                    return;
+                }
             }
 
-            if (_selectedTitlesByDropdown.ContainsKey(dropdownId))
-            {
-                RemoveTitleFromList(title, dropdownId);
+            if (_selectedCluesByDropdown.ContainsKey(dropdownId))
+                _selectedCluesByDropdown.Remove(dropdownId);
 
-                return;
-            }
-
-            _selectedTitlesByDropdown[dropdownId] = title;
-
+            _selectedCluesByDropdown[dropdownId] = clue;
             UpdateSearchText();
         }
 
-        private void RemoveTitleFromList(string title, int dropdownId)
+        private void OnClueDeselected(IClue clue, int dropdownId)
         {
-            if (_selectedTitlesByDropdown.TryGetValue(dropdownId, out var storedTitle) && storedTitle == title)
+            if (_selectedCluesByDropdown.TryGetValue(dropdownId, out var currentClue) && currentClue.TitleLid == clue.TitleLid)
             {
-                _selectedTitlesByDropdown.Remove(dropdownId);
-
+                _selectedCluesByDropdown.Remove(dropdownId);
                 UpdateSearchText();
             }
         }
 
         private void UpdateSearchText()
         {
-            _searchQueryText.text = string.Join(" + ", _selectedTitlesByDropdown.Values);
+            _inputBuilder.Clear();
+            _titleBuilder.Clear();
+
+            bool isFirst = true;
+
+            foreach (var clue in _selectedCluesByDropdown.Values)
+            {
+                if (!isFirst)
+                {
+                    _inputBuilder.Append(" + ");
+                    _titleBuilder.Append(" + ");
+                }
+
+                _inputBuilder.Append(clue.TypeId);
+                _titleBuilder.Append(clue.TitleLid);
+
+                isFirst = false;
+            }
+
+            _currentInput = _inputBuilder.ToString();
+            _searchQueryText.text = _titleBuilder.ToString();
         }
+
+        public string GetInputField() => _currentInput;
 
         private void OnDestroy()
         {
-            foreach (var dropdown in _clueItemsDropdowns)
+            if (_dropdownsHandler != null)
             {
-                dropdown.OnClueSelected -= AddTitleToList;
-                dropdown.OnClueDeselected -= RemoveTitleFromList;
+                _dropdownsHandler.OnClueSelected -= OnClueSelected;
+                _dropdownsHandler.OnClueDeselected -= OnClueDeselected;
             }
+
+            _selectedCluesByDropdown.Clear();
         }
     }
 }

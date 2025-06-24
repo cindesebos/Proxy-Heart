@@ -8,14 +8,6 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor
         [MenuItem("Flat/Import Settings/Import All Configs")]
         private static void ImportAllConfigs() => SettingsImportUtils.ImportAllConfigs();
 
-        [MenuItem("Flat/Import Settings/Import Clue Texts Settings")]
-        private static void ImportClueTextsSettings()
-        {
-            var importer = new ClueTextsImporter();
-
-            SettingsImportUtils.ImportConfig(importer);
-        }
-
         [MenuItem("Flat/Import Settings/Import Clue Objects Settings")]
         private static void ImportClueObjectsSettings()
         {
@@ -31,11 +23,19 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor
 
             SettingsImportUtils.ImportConfig(importer);
         }
-        
+
         [MenuItem("Flat/Import Settings/Import Dialogues Settings")]
         private static void ImportDialoguesSettings()
         {
             var importer = new DialoguesImporter();
+
+            SettingsImportUtils.ImportConfig(importer);
+        }
+        
+        [MenuItem("Flat/Import Settings/Import Google Settings")]
+        private static void ImportGoogleSettings()
+        {
+            var importer = new GooglesImporter();
 
            SettingsImportUtils.ImportConfig(importer);
         }

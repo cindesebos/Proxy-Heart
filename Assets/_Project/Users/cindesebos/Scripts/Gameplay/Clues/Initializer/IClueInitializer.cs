@@ -5,9 +5,9 @@ namespace Scripts.Gameplay.Clues.Initializer
 {
     public interface IClueInitializer
     {
-        UniTask<ClueTextSettingsT> InitializeClueTextById(string id);
         UniTask<ClueObjectSettingsT> InitializeClueObjectById(string id);
         UniTask<ClueGroupSettingsT> InitializeGroupVariantById(string typeId);
         UniTask<string> InitializeClueById(string id);
+        UniTask<GoogleSettingsT> InitializeGoogleById(string id);
     }
 }
