@@ -10,19 +10,19 @@ namespace Scripts.Gameplay.Canvases
 
         private void OnValidate() => Canvas ??= GetComponent<Canvas>();
 
-        public void Open()
+        public virtual void Open()
         {
             Canvas.enabled = true;
             _icon?.SetActive(true);
         }
 
-        public void Close()
+        public virtual void Close()
         {
             Canvas.enabled = false;
             _icon?.SetActive(false);
         }
 
-        public void Toggle()
+        public virtual void Toggle()
         {
             Canvas.enabled = !Canvas.enabled;
         }

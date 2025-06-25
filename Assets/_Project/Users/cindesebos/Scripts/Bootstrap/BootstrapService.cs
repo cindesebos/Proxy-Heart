@@ -45,35 +45,12 @@ namespace Scripts.Bootstrap
             var gameSettings = _settingsProvider.GameSettings;
 
             var message =
-            $"\n\nClueTextsSettings: {GetClueTextsSettings(gameSettings)}" +
             $"\n\nClueObjectsSettings: {GetClueObjectsSettings(gameSettings)}" +
             $"\n\nClueGroupsSettings: {GetClueGroupsSettings(gameSettings)}" +
-            $"\n\nDialogusSettings: {GetDialogusSettings(gameSettings)}";
+            $"\n\nDialogusSettings: {GetDialogusSettings(gameSettings)}" +
+            $"\n\nGooglesSettings: {GetGooglesSettings(gameSettings)}";
 
             Debug.Log(message);
-        }
-
-        private string GetClueTextsSettings(GameSettings gameSettings)
-        {
-            var count = gameSettings.ClueTextsLength;
-
-            string message = string.Empty;
-
-            for (int i = 0; i < count; i++)
-            {
-                var textSetting = gameSettings.ClueTexts(i);
-
-                if (!textSetting.HasValue) continue;
-
-                var settings = textSetting.Value;
-
-                var typeId = settings.TypeId;
-                var messageLid = settings.MessageLid;
-
-                message += $"\nTypeId: {typeId} - MessageLid: {messageLid}";
-            }
-
-            return message;
         }
 
         private string GetClueObjectsSettings(GameSettings gameSettings)
@@ -146,6 +123,31 @@ namespace Scripts.Bootstrap
                 var titleLid = settings.MessageLid;
 
                 message += $"\nTypeId: {typeId} - AuthorType: {authorType} - TitleLid: {titleLid}";
+            }
+
+            return message;
+        }
+
+        private string GetGooglesSettings(GameSettings gameSettings)
+        {
+            var count = gameSettings.GooglesLength;
+
+            string message = string.Empty;
+
+            Debug.Log("Count is " + count);
+
+            for (int i = 0; i < count; i++)
+            {
+                var textSetting = gameSettings.Googles(i);
+
+                if (!textSetting.HasValue) continue;
+
+                var settings = textSetting.Value;
+
+                var variantId = settings.VariantId;
+                var messageLid = settings.MessageLid;
+
+                message += $"\nVariantId: {variantId}  - MessageLid: {messageLid}";
             }
 
             return message;

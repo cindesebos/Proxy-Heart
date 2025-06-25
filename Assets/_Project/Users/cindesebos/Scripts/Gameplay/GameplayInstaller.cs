@@ -5,6 +5,7 @@ using Scripts.Gameplay.Clues.Initializer;
 using Scripts.Inventory;
 using Scripts.Services.Loader.Assets;
 using Scripts.Gameplay.Canvases;
+using Scripts.Gameplay.Canvases.Dialogue;
 
 namespace Scripts.Gameplay
 {
@@ -18,6 +19,7 @@ namespace Scripts.Gameplay
             BindClueInitializer();
             BindInventory();
             BindCanvasesHandler();
+            BindDialueHandler();
         }
 
         private void BindLocalAssetLoader()
@@ -45,6 +47,12 @@ namespace Scripts.Gameplay
         {
             Container.Bind<CanvasesHandler>()
                 .FromInstance(_canvasesHandler)
+                .AsSingle();
+        }
+
+        private void BindDialueHandler()
+        {
+            Container.BindInterfacesAndSelfTo<DialogueHandler>()
                 .AsSingle();
         }
     }

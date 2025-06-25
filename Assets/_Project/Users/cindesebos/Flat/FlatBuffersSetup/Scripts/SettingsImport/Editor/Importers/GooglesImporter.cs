@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace FlatBuffersSetup.Scripts.SettingsImport.Editor.Importers
 {
-    public class ClueTextsImporter : ProjectImporter, IImporter
+    public class GooglesImporter : ProjectImporter, IImporter
     {
-        protected override string SettingsFileName => "ClueTextsSettings.bytes";
+        protected override string SettingsFileName => "GooglesSettings.bytes";
 
-        private ClueTextSettingsT _currentSettings;
+        private GoogleSettingsT _currentSettings;
 
-        public ClueTextsImporter() : base(ImportConstants.MAIN_CONFIG_SPREADSHEET_ID, "ClueTexts") { }
+        public GooglesImporter() : base(ImportConstants.MAIN_CONFIG_SPREADSHEET_ID, "Googles") { }
 
         public async Task DownloadAndParse()
         {
             LocalSettings = new GameSettingsT
             {
-                ClueTexts = new List<ClueTextSettingsT>()
+                Googles = new List<GoogleSettingsT>()
             };
 
             await DownloadAndParseSheet();
@@ -26,19 +26,19 @@ namespace FlatBuffersSetup.Scripts.SettingsImport.Editor.Importers
 
         public void AddToSettings(GameSettingsT gameSettingsT)
         {
-            gameSettingsT.ClueTexts = LocalSettings.ClueTexts;
+            gameSettingsT.Googles = LocalSettings.Googles;
         }
 
         protected override void ParseCell(string header, string cellData)
         {
-            if (header == "TypeId")
+            if (header == "VariantId")
             {
-                _currentSettings = new ClueTextSettingsT
+                _currentSettings = new GoogleSettingsT
                 {
-                    TypeId = cellData
+                    VariantId = cellData
                 };
 
-                LocalSettings.ClueTexts.Add(_currentSettings);
+                LocalSettings.Googles.Add(_currentSettings);
                 return;
             }
 

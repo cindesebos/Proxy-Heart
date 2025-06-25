@@ -21,7 +21,7 @@ namespace Scripts.Gameplay.Clues
 
         private IClueInitializer _clueInitializer;
         private IInventory _inventory;
-        private ClueTextSettingsT _settings;
+        //private ClueTextSettingsT _settings;
 
         private void OnValidate() => _text ??= GetComponent<TextMeshProUGUI>();
 
@@ -32,16 +32,16 @@ namespace Scripts.Gameplay.Clues
             _inventory = inventory;
         }
 
-        private async UniTask Start()
+        /*private async UniTask Start()
         {
             _settings = await _clueInitializer.InitializeClueTextById(TypeId);
 
             await Initialize();
-        }
+        }*/
 
         public async UniTask Initialize()
         {
-            MessaegLid = Compile(_settings.MessageLid);
+           // MessaegLid = Compile(_settings.MessageLid);
 
             _text.text = MessaegLid;
         }

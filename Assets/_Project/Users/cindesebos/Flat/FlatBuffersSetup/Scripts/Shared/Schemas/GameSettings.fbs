@@ -1,16 +1,16 @@
 include "Gameplay/ClueObjects.fbs";
-include "Gameplay/ClueTexts.fbs";
 include "Gameplay/ClueGroups.fbs";
 include "Gameplay/Dialogues.fbs";
+include "Gameplay/Googles.fbs";
 
 namespace FlatBuffersSetup;
 
 table GameSettings
 {
     clueObjects: [Gameplay.ClueObjectSettings];
-    clueTexts: [Gameplay.ClueTextSettings];
     clueGroups: [Gameplay.ClueGroupSettings];
     dialogues: [Gameplay.DialogueSettings];
+    googles: [Gameplay.GoogleSettings];
 }
 
 root_type GameSettings;

@@ -1,7 +1,7 @@
 namespace FlatBuffersSetup.Gameplay;
 
-table ClueTextSettings
+table GoogleSettings
 {
-    typeId: string;
+    variantId: string;
     messageLid: string;
 }
